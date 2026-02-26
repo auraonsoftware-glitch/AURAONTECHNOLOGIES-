@@ -1,0 +1,324 @@
+/* Quote Page - Qualcomm-Inspired Dark Theme */
+/* Dark Background #0a0a0a | Red Accent #e31837 */
+
+.quote-page {
+  padding-top: 80px;
+  background: var(--bg-darker);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* Hero Section */
+.quote-hero {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-color) 100%);
+  padding: 60px 0 80px;
+  margin-bottom: -40px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  transition: var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--text-white);
+  transform: translateX(-4px);
+}
+
+.quote-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 12px;
+}
+
+.quote-hero p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Form Container */
+.quote-form {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--gray-800);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Form Sections */
+.form-section {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 32px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 24px;
+}
+
+.section-title svg {
+  color: var(--accent-red);
+}
+
+/* Form Grid */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 8px;
+}
+
+.form-group label svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+  color: var(--accent-red);
+}
+
+/* Input Styles */
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-gray);
+  pointer-events: none;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  border: 2px solid var(--gray-800);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  transition: var(--transition-fast);
+  background: var(--bg-darker);
+  color: var(--text-white);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(227, 24, 55, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group select {
+  padding-left: 16px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+}
+
+.form-group textarea {
+  padding-left: 16px;
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Service Grid */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.service-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: var(--bg-darker);
+  border: 2px solid var(--gray-800);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.service-option:hover {
+  border-color: var(--gray-700);
+  background: var(--bg-dark);
+}
+
+.service-option.selected {
+  border-color: var(--accent-red);
+  background: rgba(227, 24, 55, 0.1);
+}
+
+.service-option .service-icon {
+  color: var(--accent-red);
+  flex-shrink: 0;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-info strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 4px;
+}
+
+.service-info span {
+  font-size: 0.75rem;
+  color: var(--text-gray);
+}
+
+.check-icon {
+  color: var(--accent-red);
+  flex-shrink: 0;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 18px 32px;
+  background: var(--accent-red);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--accent-color);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Form Note */
+.form-note {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+/* Resume Input */
+.resume-input-wrapper {
+  position: relative;
+}
+
+.resume-input-wrapper .upload-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-red);
+  pointer-events: none;
+}
+
+.resume-input-wrapper input {
+  padding-left: 48px !important;
+}
+
+.resume-hint {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quote-hero {
+    padding: 40px 0 60px;
+  }
+
+  .quote-hero h1 {
+    font-size: 2rem;
+  }
+
+  .quote-form {
+    padding: 32px 24px;
+    margin: 0 16px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-option {
+    padding: 16px;
+  }
+}

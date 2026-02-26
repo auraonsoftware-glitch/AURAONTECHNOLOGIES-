@@ -1,0 +1,376 @@
+import { useEffect, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { 
+  Code2, 
+  Smartphone, 
+  Cloud, 
+  Brain, 
+  Palette, 
+  Database,
+  ArrowRight,
+  Star,
+  Zap,
+  Shield,
+  Globe,
+  ChevronRight,
+  Sparkles
+} from 'lucide-react'
+import { Link } from 'react-router-dom'
+import './Home.css'
+
+function Home() {
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
+  useEffect(() => {
+    const handleAnchorClick = (e) => {
+      const href = e.currentTarget.getAttribute('href')
+      if (href?.startsWith('#')) {
+        e.preventDefault()
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', handleAnchorClick)
+    })
+
+    return () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.removeEventListener('click', handleAnchorClick)
+      })
+    }
+  }, [])
+
+  const services = [
+    {
+      icon: <Code2 size={32} />,
+      title: 'Web Development',
+      description: 'Custom websites and web applications built with modern technologies like React, Node.js, and cloud infrastructure.',
+      color: 'var(--primary-color)'
+    },
+    {
+      icon: <Smartphone size={32} />,
+      title: 'Mobile Apps',
+      description: 'Native and cross-platform mobile applications for iOS and Android using React Native and Flutter.',
+      color: 'var(--secondary-color)'
+    },
+    {
+      icon: <Brain size={32} />,
+      title: 'AI Solutions',
+      description: 'Machine learning models, chatbots, and intelligent automation to transform your business processes.',
+      color: '#d946ef'
+    },
+    {
+      icon: <Cloud size={32} />,
+      title: 'Cloud Services',
+      description: 'Cloud migration, DevOps, and infrastructure management on AWS, Azure, and Google Cloud.',
+      color: '#3b82f6'
+    },
+    {
+      icon: <Palette size={32} />,
+      title: 'UI/UX Design',
+      description: 'User-centered design that creates intuitive, engaging experiences for your digital products.',
+      color: '#f59e0b'
+    },
+    {
+      icon: <Database size={32} />,
+      title: 'Database Solutions',
+      description: 'Database design, optimization, and management for scalable data storage and retrieval.',
+      color: '#10b981'
+    }
+  ]
+
+  const process = [
+    {
+      step: '01',
+      title: 'Discovery',
+      description: 'We understand your business goals, target audience, and project requirements through in-depth consultation.'
+    },
+    {
+      step: '02',
+      title: 'Strategy',
+      description: 'We create a detailed roadmap with timelines, milestones, and deliverables tailored to your needs.'
+    },
+    {
+      step: '03',
+      title: 'Development',
+      description: 'Our expert team builds your solution using agile methodologies and industry best practices.'
+    },
+    {
+      step: '04',
+      title: 'Launch',
+      description: 'We deploy your solution and provide comprehensive support and maintenance services.'
+    }
+  ]
+
+  const testimonials = [
+    {
+      name: 'Rajesh Kumar',
+      role: 'CEO, TechStart',
+      content: 'AURAON transformed our outdated website into a modern, high-performing platform. Their attention to detail and technical expertise is exceptional.',
+      rating: 5
+    },
+    {
+      name: 'Priya Sharma',
+      role: 'Founder, HealthPlus',
+      content: 'The mobile app they developed for us has received amazing feedback from our users. Professional team, great communication, and on-time delivery.',
+      rating: 5
+    },
+    {
+      name: 'Amit Patel',
+      role: 'CTO, FinanceHub',
+      content: 'Their AI solution helped us automate 70% of our manual processes. Incredible ROI and the team was fantastic to work with.',
+      rating: 5
+    }
+  ]
+
+  const features = [
+    { icon: <Zap size={24} />, title: 'Lightning Fast', desc: 'Optimized performance' },
+    { icon: <Shield size={24} />, title: 'Secure', desc: 'Enterprise-grade security' },
+    { icon: <Globe size={24} />, title: 'Global Scale', desc: 'Worldwide deployment' }
+  ]
+
+  return (
+    <div className="home" ref={containerRef}>
+      {/* Hero Section */}
+      <section id="home" className="hero">
+        <div className="hero-bg-effects">
+          <div className="glow-orb orb-1"></div>
+          <div className="glow-orb orb-2"></div>
+          <div className="glow-orb orb-3"></div>
+        </div>
+        
+        <div className="hero-content">
+          <motion.div 
+            className="hero-text"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="hero-badge">
+              <Sparkles size={16} />
+              <span>Next-Gen Software Solutions</span>
+            </div>
+            
+            <h1 className="hero-title">
+              Building <span className="gradient-text">Intelligent</span>
+              <br />
+              Software for the Future
+            </h1>
+            
+            <p className="hero-description">
+              We transform your ideas into powerful digital solutions. From cutting-edge web applications 
+              to AI-powered systems, we deliver technology that drives unprecedented growth.
+            </p>
+            
+            <div className="hero-buttons">
+              <Link to="/quote" className="btn btn-primary btn-glow">
+                Start Your Project
+                <ArrowRight size={20} />
+              </Link>
+              <a href="#services" className="btn btn-secondary">
+                Explore Services
+              </a>
+            </div>
+
+            <div className="hero-features">
+              {features.map((feature, index) => (
+                <motion.div 
+                  key={index}
+                  className="hero-feature"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                >
+                  <div className="feature-icon">{feature.icon}</div>
+                  <div className="feature-text">
+                    <strong>{feature.title}</strong>
+                    <span>{feature.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className="hero-visual"
+            style={{ y, opacity }}
+          >
+            <div className="hero-3d-container">
+              <div className="center-glow"></div>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="scroll-indicator">
+          <div className="mouse">
+            <div className="wheel"></div>
+          </div>
+          <span>Scroll to explore</span>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="stats-section">
+        <div className="container">
+          <div className="stats-grid">
+            {[
+              { number: '150+', label: 'Projects Delivered', suffix: '' },
+              { number: '50+', label: 'Happy Clients', suffix: '' },
+              { number: '5+', label: 'Years Experience', suffix: '' },
+              { number: '24/7', label: 'Support Available', suffix: '' }
+            ].map((stat, index) => (
+              <motion.div 
+                key={index}
+                className="stat-card glass-card"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="stat-number">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="services-section">
+        <div className="container">
+          <div className="section-title">
+            <h2>Our Services</h2>
+            <p>Comprehensive digital solutions tailored to your business needs</p>
+          </div>
+          
+          <div className="services-grid">
+            {services.map((service, index) => (
+              <motion.div 
+                key={index}
+                className="service-card"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              >
+                <div className="service-glow" style={{ background: service.color }}></div>
+                <div className="service-icon" style={{ color: service.color }}>
+                  {service.icon}
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <div className="service-arrow">
+                  <ChevronRight size={20} />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="process" className="process-section">
+        <div className="container">
+          <div className="section-title">
+            <h2>How We Work</h2>
+            <p>Our proven process ensures successful project delivery</p>
+          </div>
+          
+          <div className="process-timeline">
+            {process.map((step, index) => (
+              <motion.div 
+                key={index}
+                className="process-item"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                viewport={{ once: true }}
+              >
+                <div className="process-number">{step.step}</div>
+                <div className="process-content glass-card">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="testimonials-section">
+        <div className="container">
+          <div className="section-title">
+            <h2>Client Success Stories</h2>
+            <p>Hear what our clients say about working with us</p>
+          </div>
+          
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <motion.div 
+                key={index}
+                className="testimonial-card glass-card"
+                initial={{ opacity: 0, y: 40, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              >
+                <div className="testimonial-stars">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} size={18} fill="#fbbf24" color="#fbbf24" />
+                  ))}
+                </div>
+                <p className="testimonial-quote">"{testimonial.content}"</p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">
+                    {testimonial.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  <div className="author-info">
+                    <h4>{testimonial.name}</h4>
+                    <span>{testimonial.role}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="container">
+          <motion.div 
+            className="cta-card glass-card"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="cta-glow"></div>
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Let's collaborate to bring your vision to life with cutting-edge technology.</p>
+            <Link to="/quote" className="btn btn-primary btn-glow">
+              Get Free Quote
+              <ArrowRight size={20} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default Home

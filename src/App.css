@@ -1,0 +1,12 @@
+/* App Component Styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+}
+
+main {
+  flex: 1;
+  padding-top: var(--header-height);
+}

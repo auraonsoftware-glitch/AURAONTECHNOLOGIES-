@@ -1,0 +1,13 @@
+<parameter name="content">#!/bin/bash
+
+echo "Staging all changes..."
+git add .
+
+echo "Committing changes..."
+git commit -m "Update"
+
+echo "Pushing to GitHub..."
+git push origin main
+
+echo "Done! Check https://github.com/saibalajisinghrajput-glitch/Scalp-Max-"
+</parameter>

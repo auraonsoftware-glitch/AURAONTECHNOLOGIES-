@@ -1,0 +1,107 @@
+/* Confirmation Page - Qualcomm-Inspired Dark Theme */
+/* Dark Background #0a0a0a | Red Accent #e31837 */
+
+.confirmation-page {
+  padding-top: 100px;
+  background: var(--bg-darker);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px;
+}
+
+.confirmation-content {
+  max-width: 600px;
+  text-align: center;
+  background: var(--bg-card);
+  padding: 64px 48px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--gray-800);
+}
+
+.success-icon {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-color) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32px;
+  color: var(--text-white);
+  box-shadow: var(--shadow-glow);
+}
+
+.confirmation-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-white);
+}
+
+.confirmation-content > p {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  margin-bottom: 32px;
+}
+
+.confirmation-details {
+  background: var(--bg-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 32px;
+  text-align: left;
+  border: 1px solid var(--gray-800);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row span:first-child {
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.detail-row span:last-child {
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--accent-red);
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.home-btn:hover {
+  background: var(--accent-color);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .confirmation-content {
+    padding: 48px 24px;
+  }
+
+  .confirmation-content h1 {
+    font-size: 1.75rem;
+  }
+}
