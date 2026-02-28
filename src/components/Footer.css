@@ -1,4 +1,4 @@
-/* Professional Dark Footer - Qualcomm Style */
+/* Professional Dark Footer - Red Theme */
 .footer {
   background: var(--bg-darker);
   padding: 64px 24px 24px;
@@ -31,13 +31,13 @@
 .footer-logo .logo-icon {
   width: 60px;
   height: 60px;
-  background: var(--accent-red);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: var(--shadow-glow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-logo .logo-img {
@@ -81,8 +81,8 @@
 }
 
 .social-link:hover {
-  background: var(--accent-red);
-  border-color: var(--accent-red);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
   color: var(--text-white);
 }
 
@@ -116,7 +116,7 @@
 }
 
 .footer-link:hover {
-  color: var(--accent-red);
+  color: var(--text-white);
 }
 
 /* Contact Items */
@@ -131,7 +131,7 @@
 }
 
 .contact-item:hover {
-  color: var(--accent-red);
+  color: var(--text-white);
 }
 
 .contact-icon {
@@ -142,7 +142,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-red);
+  color: var(--text-white);
   flex-shrink: 0;
 }
 

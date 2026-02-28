@@ -1,4 +1,4 @@
-/* Professional Dark Navbar - Qualcomm Style */
+/* Professional Dark Navbar - Red Theme */
 .navbar {
   position: fixed;
   top: 0;
@@ -116,7 +116,7 @@
 }
 
 .btn-nav:hover {
-  background: var(--accent-color);
+  background: var(--accent-light);
   box-shadow: var(--shadow-glow);
 }
 

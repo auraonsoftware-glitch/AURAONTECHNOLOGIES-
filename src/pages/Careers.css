@@ -1,4 +1,4 @@
-/* Careers Page - Qualcomm-Inspired Dark Theme */
+/* Careers Page - Red Theme */
 /* Dark Background #0a0a0a | Red Accent #e31837 */
 
 .careers-page {
@@ -9,7 +9,7 @@
 
 /* Hero Section */
 .careers-hero {
-  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-color) 100%);
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-crimson) 100%);
   padding: 80px 0;
   text-align: center;
 }
@@ -78,7 +78,7 @@
 .stat-number {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--accent-red);
+  color: var(--text-white);
 }
 
 .stat-label {
@@ -128,20 +128,21 @@
 
 .benefit-card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent-red);
-  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
 }
 
 .benefit-icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-color) 100%);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-white);
   margin: 0 auto 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .benefit-card h3 {
@@ -186,13 +187,13 @@
 }
 
 .job-box:hover {
-  border-color: var(--accent-red);
-  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
   transform: translateY(-4px);
 }
 
 .job-box.internship-box {
-  border-left: 4px solid var(--accent-red);
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .job-box-header {
@@ -205,16 +206,17 @@
 .job-box-icon {
   width: 56px;
   height: 56px;
-  background: var(--bg-dark);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-red);
+  color: var(--text-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .job-box-icon.internship-icon {
-  background: rgba(227, 24, 55, 0.1);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .job-box-type {
@@ -229,8 +231,8 @@
 }
 
 .job-box-type.internship-type {
-  background: rgba(227, 24, 55, 0.2);
-  color: var(--accent-red);
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-white);
 }
 
 .job-box-title {
@@ -279,14 +281,14 @@
   border: none;
   border-radius: var(--radius-md);
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: var(--transition-fast);
   flex: 1;
 }
 
 .apply-btn-box:hover {
-  background: var(--accent-color);
+  background: var(--accent-light);
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
@@ -310,7 +312,7 @@
 .details-btn:hover {
   background: var(--gray-800);
   color: var(--text-white);
-  border-color: var(--accent-red);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .details-btn svg {
@@ -369,7 +371,7 @@
   transform: translateY(-50%);
   width: 8px;
   height: 8px;
-  background: var(--accent-red);
+  background: var(--text-white);
   border-radius: 50%;
 }
 
@@ -380,7 +382,8 @@
 }
 
 .cta-content {
-  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-color) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-xl);
   padding: 64px 48px;
   text-align: center;
@@ -465,8 +468,8 @@
 }
 
 .modal-close:hover {
-  background: var(--accent-red);
-  border-color: var(--accent-red);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
   color: var(--text-white);
 }
 
@@ -514,7 +517,7 @@
 }
 
 .form-group label svg {
-  color: var(--accent-red);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .form-group input,
@@ -535,8 +538,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--accent-red);
-  box-shadow: 0 0 0 3px rgba(227, 24, 55, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 .form-group input::placeholder,
@@ -566,7 +569,7 @@
   border: none;
   border-radius: var(--radius-md);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: var(--transition-fast);
   display: flex;
@@ -577,7 +580,7 @@
 }
 
 .submit-application-btn:hover {
-  background: var(--accent-color);
+  background: var(--accent-light);
   box-shadow: var(--shadow-glow);
 }
 

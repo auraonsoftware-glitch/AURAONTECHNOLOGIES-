@@ -1,13 +1,14 @@
-/* AURAON Website - Qualcomm-Inspired Professional Theme */
-/* Dark Background #0a0a0a | Red Accent #e31837 | Professional Corporate */
+/* AURAON Website - Professional Corporate Theme */
+/* Dark Background #0a0a0a | Blue Accent #2563eb | Professional Corporate */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap');
 
 :root {
-  /* Primary Colors */
+  /* Primary Colors - Red Theme */
   --accent-red: #e31837;
-  --accent-color: #ff6b6b;
-  --accent-light: #ff8585;
+  --accent-crimson: #c41230;
+  --accent-light: #ff4d6d;
+  --accent-dark: #8b0a1a;
   
   /* Background Colors */
   --bg-darker: #0a0a0a;
@@ -36,7 +37,7 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
-  --shadow-glow: 0 0 20px rgba(227, 24, 55, 0.3);
+  --shadow-glow: 0 0 20px rgba(227, 24, 55, 0.4);
   
   /* Transitions */
   --transition-fast: all 0.15s ease;
@@ -108,10 +109,11 @@ p {
   background: var(--accent-red);
   color: var(--text-white);
   box-shadow: var(--shadow-md);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
-  background: var(--accent-color);
+  background: var(--accent-light);
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow);
 }
@@ -119,12 +121,12 @@ p {
 .btn-secondary {
   background: transparent;
   color: var(--text-white);
-  border: 2px solid var(--gray-700);
+  border: 2px solid var(--accent-red);
 }
 
 .btn-secondary:hover {
-  background: var(--gray-800);
-  border-color: var(--accent-red);
+  background: rgba(227, 24, 55, 0.1);
+  border-color: var(--accent-light);
 }
 
 /* Container */
@@ -183,7 +185,7 @@ a {
 }
 
 a:hover {
-  color: var(--accent-color);
+  color: var(--accent-light);
 }
 
 /* Scrollbar */

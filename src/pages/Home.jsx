@@ -135,9 +135,9 @@ function Home() {
   ]
 
   const features = [
-    { icon: <Zap size={24} />, title: 'Lightning Fast', desc: 'Optimized performance' },
-    { icon: <Shield size={24} />, title: 'Secure', desc: 'Enterprise-grade security' },
-    { icon: <Globe size={24} />, title: 'Global Scale', desc: 'Worldwide deployment' }
+    { icon: <Zap size={24} />, title: 'Lightning Fast', desc: 'Optimized performance', color: '#0ea5e9' },
+    { icon: <Shield size={24} />, title: 'Secure', desc: 'Enterprise-grade security', color: '#22c55e' },
+    { icon: <Globe size={24} />, title: 'Global Scale', desc: 'Worldwide deployment', color: '#3b82f6' }
   ]
 
   return (
@@ -169,8 +169,7 @@ function Home() {
             </h1>
             
             <p className="hero-description">
-              We transform your ideas into powerful digital solutions. From cutting-edge web applications 
-              to AI-powered systems, we deliver technology that drives unprecedented growth.
+              We build AI-powered software that transforms businesses. Fast, secure, and built for scale.
             </p>
             
             <div className="hero-buttons">
@@ -192,7 +191,7 @@ function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 >
-                  <div className="feature-icon">{feature.icon}</div>
+                  <div className="feature-icon" style={{ color: feature.color }}>{feature.icon}</div>
                   <div className="feature-text">
                     <strong>{feature.title}</strong>
                     <span>{feature.desc}</span>

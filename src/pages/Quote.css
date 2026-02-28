@@ -1,4 +1,4 @@
-/* Quote Page - Qualcomm-Inspired Dark Theme */
+/* Quote Page - Red Theme */
 /* Dark Background #0a0a0a | Red Accent #e31837 */
 
 .quote-page {
@@ -10,7 +10,7 @@
 
 /* Hero Section */
 .quote-hero {
-  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-color) 100%);
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-crimson) 100%);
   padding: 60px 0 80px;
   margin-bottom: -40px;
 }
@@ -79,7 +79,7 @@
 }
 
 .section-title svg {
-  color: var(--accent-red);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Form Grid */
@@ -106,7 +106,7 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 6px;
-  color: var(--accent-red);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Input Styles */
@@ -196,7 +196,7 @@
 }
 
 .service-option .service-icon {
-  color: var(--accent-red);
+  color: rgba(255, 255, 255, 0.7);
   flex-shrink: 0;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .check-icon {
-  color: var(--accent-red);
+  color: rgba(255, 255, 255, 0.7);
   flex-shrink: 0;
 }
 
@@ -231,7 +231,7 @@
   border: none;
   border-radius: var(--radius-md);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: var(--transition-fast);
   display: flex;
@@ -242,7 +242,7 @@
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: var(--accent-color);
+  background: var(--accent-light);
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
@@ -279,7 +279,7 @@
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--accent-red);
+  color: rgba(255, 255, 255, 0.7);
   pointer-events: none;
 }
 
