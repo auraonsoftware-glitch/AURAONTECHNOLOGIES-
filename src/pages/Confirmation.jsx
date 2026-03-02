@@ -17,11 +17,15 @@ import './Confirmation.css'
 
 function Confirmation() {
   const [inquiryData, setInquiryData] = useState(null)
+  const [applicantData, setApplicantData] = useState(null)
 
   useEffect(() => {
     const data = localStorage.getItem('inquiryData')
     if (data) {
       setInquiryData(JSON.parse(data))
+    } else {
+      const aData = localStorage.getItem('applicantData')
+      if (aData) setApplicantData(JSON.parse(aData))
     }
   }, [])
 
@@ -88,7 +92,7 @@ function Confirmation() {
             </p>
           </div>
 
-          {inquiryData && (
+          {(inquiryData || applicantData) && (
             <motion.div 
               className="inquiry-summary glass-card"
               initial={{ opacity: 0, y: 20 }}
@@ -97,21 +101,40 @@ function Confirmation() {
             >
               <div className="summary-header">
                 <FileText size={20} />
-                <h3>Inquiry Details</h3>
+                <h3>{inquiryData ? 'Inquiry Details' : 'Application Details'}</h3>
               </div>
               <div className="summary-grid">
-                <div className="summary-item">
-                  <span className="label">Project</span>
-                  <span className="value">{inquiryData.service}</span>
-                </div>
-                <div className="summary-item">
-                  <span className="label">Budget</span>
-                  <span className="value">{inquiryData.budget || 'To be discussed'}</span>
-                </div>
-                <div className="summary-item">
-                  <span className="label">Inquiry ID</span>
-                  <span className="value id">#{localStorage.getItem('lastInquiryId')?.slice(-6)}</span>
-                </div>
+                {inquiryData ? (
+                  <>
+                    <div className="summary-item">
+                      <span className="label">Project</span>
+                      <span className="value">{inquiryData.service}</span>
+                    </div>
+                    <div className="summary-item">
+                      <span className="label">Budget</span>
+                      <span className="value">{inquiryData.budget || 'To be discussed'}</span>
+                    </div>
+                    <div className="summary-item">
+                      <span className="label">Inquiry ID</span>
+                      <span className="value id">#{localStorage.getItem('lastInquiryId')?.slice(-6)}</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="summary-item">
+                      <span className="label">Name</span>
+                      <span className="value">{applicantData.name}</span>
+                    </div>
+                    <div className="summary-item">
+                      <span className="label">Position</span>
+                      <span className="value">{applicantData.position}</span>
+                    </div>
+                    <div className="summary-item">
+                      <span className="label">Applicant ID</span>
+                      <span className="value id">#{localStorage.getItem('lastApplicantId')?.slice(-6)}</span>
+                    </div>
+                  </>
+                )}
               </div>
             </motion.div>
           )}

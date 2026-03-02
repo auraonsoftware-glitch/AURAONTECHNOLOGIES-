@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../supabaseClient'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   Briefcase,
   Users,
@@ -28,6 +28,7 @@ function Careers() {
   const [showForm, setShowForm] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null) // 'success' | 'error' | null
+  const [submitError, setSubmitError] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,6 +39,7 @@ function Careers() {
     linkedin: '',
     coverLetter: ''
   })
+  const navigate = useNavigate()
 
   const jobOpenings = [
     {
@@ -199,27 +201,43 @@ function Careers() {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus(null)
+    setSubmitError('')
     try {
       const applicantType = INTERNSHIP_POSITIONS.includes(formData.position) ? 'Internship' : 'Job'
-      const { error } = await supabase.from('applicants').insert([{
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        position: formData.position,
-        applicant_type: applicantType,
-        experience: formData.experience,
-        resume: formData.resume,
-        linkedin: formData.linkedin || '',
-        cover_letter: formData.coverLetter || ''
-      }])
+      const { data, error } = await supabase
+        .from('applicants')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          position: formData.position,
+          applicant_type: applicantType,
+          experience: formData.experience,
+          resume: formData.resume,
+          linkedin: formData.linkedin || '',
+          cover_letter: formData.coverLetter || ''
+        }])
+        .select()
+
       if (error) throw error
+
+      // Save inserted data for confirmation page and navigate
+      const inserted = Array.isArray(data) ? data[0] : data
+      try {
+        localStorage.setItem('applicantData', JSON.stringify(inserted))
+        localStorage.setItem('lastApplicantId', inserted.id)
+      } catch (storageErr) {
+        console.warn('Could not save applicant data to localStorage', storageErr)
+      }
+
       setSubmitStatus('success')
-      setTimeout(() => {
-        setShowForm(false)
-        setSubmitStatus(null)
-        setFormData({ name: '', email: '', phone: '', position: '', experience: '', resume: '', linkedin: '', coverLetter: '' })
-      }, 2000)
-    } catch {
+      // navigate to application-specific confirmation page
+      navigate('/application-confirmation')
+    } catch (err) {
+      console.error('Application submit error:', err)
+      // Capture message for UI
+      const msg = err?.message || (err && typeof err === 'object' ? JSON.stringify(err) : String(err))
+      setSubmitError(msg)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -578,7 +596,7 @@ function Careers() {
                 <p className="form-success-msg">✅ Application submitted! We'll contact you soon.</p>
               )}
               {submitStatus === 'error' && (
-                <p className="form-error-msg">❌ Something went wrong. Please try again.</p>
+                <p className="form-error-msg">❌ Submission failed. Please try again.{submitError ? ` — ${submitError}` : ''}</p>
               )}
               <button type="submit" className="submit-application-btn" disabled={isSubmitting}>
                 {isSubmitting ? '⏳ Submitting...' : <><Send size={18} /> Submit Application</>}
