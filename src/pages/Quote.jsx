@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { supabase } from '../supabaseClient'
 import {
   Send,
   User,
@@ -71,22 +72,23 @@ function Quote() {
     setIsSubmitting(true)
     setSubmitError('')
     try {
-      const response = await fetch('http://localhost:5001/api/quote', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
-      const data = await response.json()
-      if (data.success) {
-        const inquiryId = 'INQ-' + data.id
-        localStorage.setItem('lastInquiryId', inquiryId)
-        localStorage.setItem('inquiryData', JSON.stringify(formData))
-        navigate('/confirmation')
-      } else {
-        setSubmitError(data.message || 'Submission failed. Please try again.')
-      }
+      const { data, error } = await supabase.from('quote_requests').insert([{
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company || '',
+        service: formData.service,
+        budget: formData.budget || '',
+        resume: formData.resume || '',
+        message: formData.message
+      }]).select().single()
+      if (error) throw error
+      const inquiryId = 'INQ-' + data.id
+      localStorage.setItem('lastInquiryId', inquiryId)
+      localStorage.setItem('inquiryData', JSON.stringify(formData))
+      navigate('/confirmation')
     } catch {
-      setSubmitError('Could not reach the server. Please try again.')
+      setSubmitError('Submission failed. Please try again.')
     } finally {
       setIsSubmitting(false)
     }

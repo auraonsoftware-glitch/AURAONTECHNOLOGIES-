@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { supabase } from '../supabaseClient'
 import { Link } from 'react-router-dom'
 import {
   Briefcase,
@@ -192,27 +193,32 @@ function Careers() {
     }
   ]
 
+  const INTERNSHIP_POSITIONS = ['Data Science Intern', 'Web Development Intern']
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus(null)
     try {
-      const response = await fetch('http://localhost:5001/api/apply', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
-      const data = await response.json()
-      if (data.success) {
-        setSubmitStatus('success')
-        setTimeout(() => {
-          setShowForm(false)
-          setSubmitStatus(null)
-          setFormData({ name: '', email: '', phone: '', position: '', experience: '', resume: '', linkedin: '', coverLetter: '' })
-        }, 2000)
-      } else {
-        setSubmitStatus('error')
-      }
+      const applicantType = INTERNSHIP_POSITIONS.includes(formData.position) ? 'Internship' : 'Job'
+      const { error } = await supabase.from('applicants').insert([{
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        position: formData.position,
+        applicant_type: applicantType,
+        experience: formData.experience,
+        resume: formData.resume,
+        linkedin: formData.linkedin || '',
+        cover_letter: formData.coverLetter || ''
+      }])
+      if (error) throw error
+      setSubmitStatus('success')
+      setTimeout(() => {
+        setShowForm(false)
+        setSubmitStatus(null)
+        setFormData({ name: '', email: '', phone: '', position: '', experience: '', resume: '', linkedin: '', coverLetter: '' })
+      }, 2000)
     } catch {
       setSubmitStatus('error')
     } finally {
