@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { 
-  Send, 
-  User, 
-  Mail, 
-  Phone, 
-  Building2, 
+import {
+  Send,
+  User,
+  Mail,
+  Phone,
+  Building2,
   MessageSquare,
   CheckCircle2,
   Loader2,
@@ -28,6 +28,7 @@ import './Quote.css'
 function Quote() {
   const navigate = useNavigate()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -68,15 +69,27 @@ function Quote() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    await new Promise(resolve => setTimeout(resolve, 1500))
-
-    const inquiryId = 'INQ-' + Date.now()
-    localStorage.setItem('lastInquiryId', inquiryId)
-    localStorage.setItem('inquiryData', JSON.stringify(formData))
-
-    setIsSubmitting(false)
-    navigate('/confirmation')
+    setSubmitError('')
+    try {
+      const response = await fetch('http://localhost:5001/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      const data = await response.json()
+      if (data.success) {
+        const inquiryId = 'INQ-' + data.id
+        localStorage.setItem('lastInquiryId', inquiryId)
+        localStorage.setItem('inquiryData', JSON.stringify(formData))
+        navigate('/confirmation')
+      } else {
+        setSubmitError(data.message || 'Submission failed. Please try again.')
+      }
+    } catch {
+      setSubmitError('Could not reach the server. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -174,7 +187,7 @@ function Quote() {
               <Briefcase size={20} />
               Project Details
             </h3>
-            
+
             <div className="form-group">
               <label>Select Service *</label>
               <div className="service-grid">
@@ -260,8 +273,11 @@ function Quote() {
             </div>
           </div>
 
-          <button 
-            type="submit" 
+          {submitError && (
+            <p style={{ color: '#ef4444', textAlign: 'center', marginBottom: '1rem' }}>❌ {submitError}</p>
+          )}
+          <button
+            type="submit"
             className="submit-btn"
             disabled={isSubmitting}
           >
@@ -279,7 +295,7 @@ function Quote() {
           </button>
 
           <p className="form-note">
-            By submitting this form, you agree to our privacy policy. 
+            By submitting this form, you agree to our privacy policy.
             We respect your privacy and will never share your information.
           </p>
         </form>

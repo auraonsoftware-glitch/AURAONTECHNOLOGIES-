@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { 
-  Briefcase, 
-  Users, 
-  TrendingUp, 
-  Globe, 
-  ArrowRight, 
-  MapPin, 
-  Clock, 
+import {
+  Briefcase,
+  Users,
+  TrendingUp,
+  Globe,
+  ArrowRight,
+  MapPin,
+  Clock,
   ChevronDown,
   GraduationCap,
   Code2,
@@ -25,6 +25,8 @@ import './Careers.css'
 function Careers() {
   const [selectedJob, setSelectedJob] = useState(null)
   const [showForm, setShowForm] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' | 'error' | null
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -168,42 +170,54 @@ function Careers() {
   ]
 
   const benefits = [
-    { 
-      icon: TrendingUp, 
-      title: 'Growth Opportunities', 
-      description: 'Clear career path with regular promotions and skill development programs' 
+    {
+      icon: TrendingUp,
+      title: 'Growth Opportunities',
+      description: 'Clear career path with regular promotions and skill development programs'
     },
-    { 
-      icon: Globe, 
-      title: 'Remote Work', 
-      description: 'Flexible work arrangements including remote and hybrid options' 
+    {
+      icon: Globe,
+      title: 'Remote Work',
+      description: 'Flexible work arrangements including remote and hybrid options'
     },
-    { 
-      icon: Users, 
-      title: 'Team Culture', 
-      description: 'Collaborative environment with regular team building activities' 
+    {
+      icon: Users,
+      title: 'Team Culture',
+      description: 'Collaborative environment with regular team building activities'
     },
-    { 
-      icon: Briefcase, 
-      title: 'Work-Life Balance', 
-      description: 'Flexible hours, generous leave policy, and wellness programs' 
+    {
+      icon: Briefcase,
+      title: 'Work-Life Balance',
+      description: 'Flexible hours, generous leave policy, and wellness programs'
     }
   ]
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    alert('Application submitted successfully! We will contact you soon.')
-    setShowForm(false)
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      position: '',
-      experience: '',
-      resume: '',
-      linkedin: '',
-      coverLetter: ''
-    })
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    try {
+      const response = await fetch('http://localhost:5001/api/apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      const data = await response.json()
+      if (data.success) {
+        setSubmitStatus('success')
+        setTimeout(() => {
+          setShowForm(false)
+          setSubmitStatus(null)
+          setFormData({ name: '', email: '', phone: '', position: '', experience: '', resume: '', linkedin: '', coverLetter: '' })
+        }, 2000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -219,7 +233,7 @@ function Careers() {
           <span className="hero-badge">Join Our Team</span>
           <h1>Build Your Future with <span className="highlight">AURAON</span></h1>
           <p>
-            Join a team of innovators and problem solvers. We're looking for talented individuals 
+            Join a team of innovators and problem solvers. We're looking for talented individuals
             who want to make an impact in the tech industry.
           </p>
           <div className="hero-buttons">
@@ -306,7 +320,7 @@ function Careers() {
                   </div>
                   <p className="job-box-description">{job.description}</p>
                   <div className="job-box-actions">
-                    <button 
+                    <button
                       className="btn btn-primary apply-btn-box"
                       onClick={() => {
                         setFormData(prev => ({ ...prev, position: job.title }))
@@ -315,7 +329,7 @@ function Careers() {
                     >
                       Apply Now <ArrowRight size={16} />
                     </button>
-                    <button 
+                    <button
                       className="details-btn"
                       onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
                     >
@@ -365,7 +379,7 @@ function Careers() {
                   </div>
                   <p className="job-box-description">{job.description}</p>
                   <div className="job-box-actions">
-                    <button 
+                    <button
                       className="btn btn-primary apply-btn-box"
                       onClick={() => {
                         setFormData(prev => ({ ...prev, position: job.title }))
@@ -374,7 +388,7 @@ function Careers() {
                     >
                       Apply Now <ArrowRight size={16} />
                     </button>
-                    <button 
+                    <button
                       className="details-btn"
                       onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
                     >
@@ -430,13 +444,13 @@ function Careers() {
                     <UserCog size={16} />
                     Full Name *
                   </label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Enter your full name" 
-                    required 
+                    placeholder="Enter your full name"
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -444,7 +458,7 @@ function Careers() {
                     <Briefcase size={16} />
                     Position *
                   </label>
-                  <select 
+                  <select
                     name="position"
                     value={formData.position}
                     onChange={handleChange}
@@ -464,13 +478,13 @@ function Careers() {
                     <Briefcase size={16} />
                     Email Address *
                   </label>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Enter your email" 
-                    required 
+                    placeholder="Enter your email"
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -478,13 +492,13 @@ function Careers() {
                     <Briefcase size={16} />
                     Phone Number *
                   </label>
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Enter your phone number" 
-                    required 
+                    placeholder="Enter your phone number"
+                    required
                   />
                 </div>
               </div>
@@ -494,7 +508,7 @@ function Careers() {
                   <Clock size={16} />
                   Years of Experience *
                 </label>
-                <select 
+                <select
                   name="experience"
                   value={formData.experience}
                   onChange={handleChange}
@@ -516,13 +530,13 @@ function Careers() {
                     <FileText size={16} />
                     Resume/CV Link *
                   </label>
-                  <input 
-                    type="url" 
+                  <input
+                    type="url"
                     name="resume"
                     value={formData.resume}
                     onChange={handleChange}
-                    placeholder="Google Drive, Dropbox, or portfolio link" 
-                    required 
+                    placeholder="Google Drive, Dropbox, or portfolio link"
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -530,12 +544,12 @@ function Careers() {
                     <Linkedin size={16} />
                     LinkedIn Profile
                   </label>
-                  <input 
-                    type="url" 
+                  <input
+                    type="url"
                     name="linkedin"
                     value={formData.linkedin}
                     onChange={handleChange}
-                    placeholder="Link to your LinkedIn profile" 
+                    placeholder="Link to your LinkedIn profile"
                   />
                 </div>
               </div>
@@ -545,18 +559,23 @@ function Careers() {
                   <Briefcase size={16} />
                   Cover Letter / Additional Info
                 </label>
-                <textarea 
+                <textarea
                   name="coverLetter"
                   value={formData.coverLetter}
                   onChange={handleChange}
-                  placeholder="Tell us why you'd be a great fit for this role..." 
+                  placeholder="Tell us why you'd be a great fit for this role..."
                   rows="4"
                 />
               </div>
 
-              <button type="submit" className="submit-application-btn">
-                <Send size={18} />
-                Submit Application
+              {submitStatus === 'success' && (
+                <p className="form-success-msg">✅ Application submitted! We'll contact you soon.</p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="form-error-msg">❌ Something went wrong. Please try again.</p>
+              )}
+              <button type="submit" className="submit-application-btn" disabled={isSubmitting}>
+                {isSubmitting ? '⏳ Submitting...' : <><Send size={18} /> Submit Application</>}
               </button>
             </form>
           </div>
