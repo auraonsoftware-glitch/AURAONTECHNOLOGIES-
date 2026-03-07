@@ -215,9 +215,32 @@ function Careers() {
     try {
       const applicantType = INTERNSHIP_POSITIONS.includes(formData.position) ? 'Internship' : 'Job'
       
-      // Store file name instead of the file object
-      const resumeValue = formData.resumeName || formData.resume?.name || 'File uploaded'
+      // Step 1: Upload file to Supabase Storage
+      const file = formData.resume
+      const fileExt = file.name.split('.').pop()
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
+      const filePath = `resumes/${fileName}`
       
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('resumes')
+        .upload(filePath, file, {
+          cacheControl: '3600',
+          upsert: false,
+          contentType: file.type
+        })
+
+      if (uploadError) {
+        throw new Error(`Failed to upload resume: ${uploadError.message}`)
+      }
+
+      // Step 2: Get public URL of the uploaded file
+      const { data: urlData } = supabase.storage
+        .from('resumes')
+        .getPublicUrl(filePath)
+      
+      const resumeUrl = urlData.publicUrl
+      
+      // Step 3: Save the URL in the database
       const { data, error } = await supabase
         .from('applicants')
         .insert([{
@@ -227,7 +250,7 @@ function Careers() {
           position: formData.position,
           applicant_type: applicantType,
           experience: formData.experience,
-          resume: resumeValue,
+          resume: resumeUrl,
           linkedin: formData.linkedin || '',
           cover_letter: formData.coverLetter || ''
         }])
