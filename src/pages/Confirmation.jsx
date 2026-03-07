@@ -179,13 +179,13 @@ function Confirmation() {
           <div className="contact-section">
             <p>Questions? Reach out directly</p>
             <div className="contact-links">
-              <a href="mailto:contact@auraon.com" className="contact-link">
+              <a href="mailto:info@auraontechnologies.com" className="contact-link">
                 <Mail size={16} />
-                contact@auraon.com
+                info@auraontechnologies.com
               </a>
-              <a href="tel:+919010988498" className="contact-link">
+              <a href="tel:+919963058111" className="contact-link">
                 <Phone size={16} />
-                +91 90109 88498
+                9963058111
               </a>
             </div>
           </div>

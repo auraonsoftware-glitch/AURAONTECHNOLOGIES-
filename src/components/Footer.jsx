@@ -20,8 +20,8 @@ function Footer() {
       { name: 'Get Quote', href: '/quote' },
     ],
     contact: [
-      { icon: <Mail size={16} />, text: 'contact@auraon.com', href: 'mailto:contact@auraon.com' },
-      { icon: <Phone size={16} />, text: '+91 90109 88498', href: 'tel:+919010988498' },
+      { icon: <Mail size={16} />, text: 'info@auraontechnologies.com', href: 'mailto:info@auraontechnologies.com' },
+      { icon: <Phone size={16} />, text: '9963058111', href: 'tel:+919963058111' },
       { icon: <MapPin size={16} />, text: 'Hyderabad, India', href: '#' },
     ]
   }
