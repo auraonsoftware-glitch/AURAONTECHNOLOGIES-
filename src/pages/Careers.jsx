@@ -222,7 +222,7 @@ function Careers() {
       const filePath = `resumes/${fileName}`
       
       const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('Resume')
+        .from('resume')
         .upload(filePath, file, {
           cacheControl: '3600',
           upsert: false,
@@ -235,7 +235,7 @@ function Careers() {
 
       // Step 2: Get public URL of the uploaded file
       const { data: urlData } = supabase.storage
-        .from('Resume')
+        .from('resume')
         .getPublicUrl(filePath)
       
       const resumeUrl = urlData.publicUrl
