@@ -35,7 +35,8 @@ function Careers() {
     phone: '',
     position: '',
     experience: '',
-    resume: '',
+    resume: null,
+    resumeName: '',
     linkedin: '',
     coverLetter: ''
   })
@@ -202,8 +203,21 @@ function Careers() {
     setIsSubmitting(true)
     setSubmitStatus(null)
     setSubmitError('')
+
+    // Validate file upload
+    if (!formData.resume) {
+      setSubmitError('Please upload your resume')
+      setSubmitStatus('error')
+      setIsSubmitting(false)
+      return
+    }
+
     try {
       const applicantType = INTERNSHIP_POSITIONS.includes(formData.position) ? 'Internship' : 'Job'
+      
+      // Store file name instead of the file object
+      const resumeValue = formData.resumeName || formData.resume?.name || 'File uploaded'
+      
       const { data, error } = await supabase
         .from('applicants')
         .insert([{
@@ -213,7 +227,7 @@ function Careers() {
           position: formData.position,
           applicant_type: applicantType,
           experience: formData.experience,
-          resume: formData.resume,
+          resume: resumeValue,
           linkedin: formData.linkedin || '',
           cover_letter: formData.coverLetter || ''
         }])
@@ -247,6 +261,36 @@ function Careers() {
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      // Check file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File size must be less than 5MB')
+        return
+      }
+      // Check file type
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
+      if (!allowedTypes.includes(file.type)) {
+        alert('Only PDF and DOC/DOCX files are allowed')
+        return
+      }
+      setFormData(prev => ({ 
+        ...prev, 
+        resume: file,
+        resumeName: file.name
+      }))
+    }
+  }
+
+  const removeFile = () => {
+    setFormData(prev => ({ 
+      ...prev, 
+      resume: null,
+      resumeName: ''
+    }))
   }
 
   return (
@@ -552,16 +596,29 @@ function Careers() {
                 <div className="form-group">
                   <label>
                     <FileText size={16} />
-                    Resume/CV Link *
+                    Resume/CV *
                   </label>
-                  <input
-                    type="url"
-                    name="resume"
-                    value={formData.resume}
-                    onChange={handleChange}
-                    placeholder="Google Drive, Dropbox, or portfolio link"
-                    required
-                  />
+                  <div className="file-upload-container">
+                    <input
+                      type="file"
+                      id="resume-upload"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleFileChange}
+                      className="file-input"
+                    />
+                    <label htmlFor="resume-upload" className="file-upload-label">
+                      <FileText size={18} />
+                      <span>
+                        {formData.resumeName ? formData.resumeName : 'Choose file or drag here'}
+                      </span>
+                    </label>
+                    {formData.resumeName && (
+                      <button type="button" className="remove-file-btn" onClick={removeFile}>
+                        <X size={16} />
+                      </button>
+                    )}
+                  </div>
+                  <p className="file-hint">PDF, DOC, or DOCX (max 5MB)</p>
                 </div>
                 <div className="form-group">
                   <label>
