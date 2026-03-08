@@ -13,7 +13,8 @@ import {
   Shield,
   Globe,
   ChevronRight,
-  Sparkles
+  Sparkles,
+  Linkedin
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import './Home.css'
@@ -365,6 +366,41 @@ function Home() {
               Get Free Quote
               <ArrowRight size={20} />
             </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Founder Section */}
+      <section id="founder" className="founder-section">
+        <div className="container">
+          <motion.div 
+            className="founder-card glass-card"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="founder-content">
+              <div className="founder-header">
+                <h2>Founder & CEO</h2>
+              </div>
+              <div className="founder-details">
+                <h3 className="founder-name">Sai Balaji Singh Rajput</h3>
+                <p className="founder-title">Founder & CEO, Auraon Technologies</p>
+                <p className="founder-description">
+                  CH.Sai Balaji Singh Rajput is the Founder & CEO of Auraon Technologies, a technology startup focused on building intelligent software solutions for modern businesses. He leads the development of AI-powered applications, scalable web platforms, and innovative digital systems that help organizations improve efficiency, automate workflows, and accelerate digital transformation.
+                </p>
+                <a 
+                  href="https://www.linkedin.com/in/sai-balaji-singh-rajput-4a153129a" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="linkedin-button"
+                >
+                  <Linkedin size={20} />
+                  <span>Connect on LinkedIn</span>
+                </a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

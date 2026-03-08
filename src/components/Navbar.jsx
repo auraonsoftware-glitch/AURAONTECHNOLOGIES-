@@ -32,6 +32,7 @@ function Navbar() {
     { path: '/#services', label: 'Services' },
     { path: '/#process', label: 'Process' },
     { path: '/careers', label: 'Careers' },
+    { path: '/#founder', label: 'Founder' },
   ]
 
   const isActive = (path) => {
