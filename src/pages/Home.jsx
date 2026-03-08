@@ -400,7 +400,7 @@ function Home() {
                   <span>Connect on LinkedIn</span>
                 </a>
                 <p className="founder-relationship">
-                  Sai Balaji Singh Rajput is the Founder and Chief Executive Officer (CEO) of Auraon Technologies.
+                
                 </p>
               </div>
             </div>
@@ -419,7 +419,7 @@ function Home() {
             viewport={{ once: true }}
           >
             <div className="section-title">
-              <h2>About Auraon Technologies</h2>
+              
               <p>Auraon Technologies is an IT services and software development company based in Hyderabad, India. The company specializes in artificial intelligence solutions, web development, mobile applications, and cloud technologies.</p>
             </div>
           </motion.div>
