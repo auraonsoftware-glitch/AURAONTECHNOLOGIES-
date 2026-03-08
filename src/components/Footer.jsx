@@ -20,7 +20,7 @@ function Footer() {
       { name: 'Get Quote', href: '/quote' },
     ],
     contact: [
-      { icon: <Linkedin size={16} />, text: 'Sai Balaji Singh Rajput', href: 'https://www.linkedin.com/in/sai-balaji-singh-rajput' },
+      { icon: <Linkedin size={16} />, text: 'Sai Balaji Singh Rajput', href: 'https://www.linkedin.com/in/ch-sai-balaji-singh-rajput-4a153129a/' },
       { icon: <Mail size={16} />, text: 'info@auraontechnologies.com', href: 'mailto:info@auraontechnologies.com' },
       { icon: <Phone size={16} />, text: '9963058111', href: 'tel:+919963058111' },
       { icon: <MapPin size={16} />, text: 'Hyderabad, India', href: '#' },
