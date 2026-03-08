@@ -391,7 +391,7 @@ function Home() {
                   Sai Balaji Singh Rajput is the Founder and Chief Executive Officer (CEO) of Auraon Technologies, a technology startup focused on building intelligent software solutions for modern businesses. He leads the development of AI-powered applications, scalable web platforms, and innovative digital systems that help organizations improve efficiency, automate workflows, and accelerate digital transformation.
                 </p>
                 <a 
-                  href="https://www.linkedin.com/in/sai-balaji-singh-rajput" 
+                  href="https://www.linkedin.com/in/ch-sai-balaji-singh-rajput-4a153129a/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="linkedin-button"
