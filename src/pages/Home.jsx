@@ -385,10 +385,10 @@ function Home() {
                 <h2>Founder & CEO</h2>
               </div>
               <div className="founder-details">
-                <h3 className="founder-name">Sai Balaji Singh Rajput</h3>
+                <h3 className="founder-name">CH.Sai Balaji Singh Rajput</h3>
                 <p className="founder-title">Founder & CEO, Auraon Technologies</p>
                 <p className="founder-description">
-                  CH.Sai Balaji Singh Rajput is the Founder & CEO of Auraon Technologies, a technology startup focused on building intelligent software solutions for modern businesses. He leads the development of AI-powered applications, scalable web platforms, and innovative digital systems that help organizations improve efficiency, automate workflows, and accelerate digital transformation.
+                  CH.CH.Sai Balaji Singh Rajput is the Founder & CEO of Auraon Technologies, a technology startup focused on building intelligent software solutions for modern businesses. He leads the development of AI-powered applications, scalable web platforms, and innovative digital systems that help organizations improve efficiency, automate workflows, and accelerate digital transformation.
                 </p>
                 <a 
                   href="https://www.linkedin.com/in/sai-balaji-singh-rajput-4a153129a" 
