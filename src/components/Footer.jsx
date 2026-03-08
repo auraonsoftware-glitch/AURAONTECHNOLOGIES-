@@ -27,7 +27,7 @@ function Footer() {
   }
 
   const socialLinks = [
-    { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn' },
+    { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/company/auraon-technologies', label: 'LinkedIn' },
     { icon: <Github size={20} />, href: '#', label: 'GitHub' },
     { icon: <Twitter size={20} />, href: '#', label: 'Twitter' },
     { icon: <Instagram size={20} />, href: '#', label: 'Instagram' },
@@ -110,7 +110,7 @@ function Footer() {
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <p className="copyright">
-            &copy; {currentYear} AURAON Software Solutions. All rights reserved.
+            &copy; {currentYear} Auraon Technologies. All rights reserved.
           </p>
         </div>
       </div>

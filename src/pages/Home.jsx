@@ -385,13 +385,13 @@ function Home() {
                 <h2>Founder & CEO</h2>
               </div>
               <div className="founder-details">
-                <h3 className="founder-name">CH.Sai Balaji Singh Rajput</h3>
+                <h3 className="founder-name">Sai Balaji Singh Rajput</h3>
                 <p className="founder-title">Founder & CEO, Auraon Technologies</p>
                 <p className="founder-description">
-                  CH.Sai Balaji Singh Rajput is the Founder & CEO of Auraon Technologies, a technology startup focused on building intelligent software solutions for remote teams. He leads the development of AI-powered applications, scalable web platforms, and innovative digital systems that help organizations improve efficiency, automate workflows, and accelerate digital transformation.
+                  Sai Balaji Singh Rajput is the Founder and Chief Executive Officer (CEO) of Auraon Technologies, a technology startup focused on building intelligent software solutions for modern businesses. He leads the development of AI-powered applications, scalable web platforms, and innovative digital systems that help organizations improve efficiency, automate workflows, and accelerate digital transformation.
                 </p>
                 <a 
-                  href="https://www.linkedin.com/in/sai-balaji-singh-rajput-4a153129a" 
+                  href="https://www.linkedin.com/in/sai-balaji-singh-rajput" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="linkedin-button"
@@ -399,7 +399,28 @@ function Home() {
                   <Linkedin size={20} />
                   <span>Connect on LinkedIn</span>
                 </a>
+                <p className="founder-relationship">
+                  Sai Balaji Singh Rajput is the Founder and Chief Executive Officer (CEO) of Auraon Technologies.
+                </p>
               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="about-section">
+        <div className="container">
+          <motion.div 
+            className="about-card glass-card"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="section-title">
+              <h2>About Auraon Technologies</h2>
+              <p>Auraon Technologies is an IT services and software development company based in Hyderabad, India. The company specializes in artificial intelligence solutions, web development, mobile applications, and cloud technologies.</p>
             </div>
           </motion.div>
         </div>
