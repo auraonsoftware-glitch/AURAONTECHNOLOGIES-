@@ -127,7 +127,7 @@
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 14px 16px 14px 48px;
+  padding: 14px 16px 14px 52px;
   border: 2px solid var(--gray-800);
   border-radius: var(--radius-md);
   font-size: 0.9375rem;
