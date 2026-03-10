@@ -117,9 +117,8 @@ function Quote() {
             </h3>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="name">Full Name *</label>
+                <label htmlFor="name">Full Name</label>
                 <div className="input-wrapper">
-                  <User size={18} className="input-icon" />
                   <input
                     type="text"
                     id="name"
@@ -133,9 +132,8 @@ function Quote() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email Address *</label>
+                <label htmlFor="email">Email Address</label>
                 <div className="input-wrapper">
-                  <Mail size={18} className="input-icon" />
                   <input
                     type="email"
                     id="email"
@@ -151,9 +149,8 @@ function Quote() {
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="phone">Phone Number *</label>
+                <label htmlFor="phone">Phone Number</label>
                 <div className="input-wrapper">
-                  <Phone size={18} className="input-icon" />
                   <input
                     type="tel"
                     id="phone"
@@ -169,7 +166,6 @@ function Quote() {
               <div className="form-group">
                 <label htmlFor="company">Company Name</label>
                 <div className="input-wrapper">
-                  <Building2 size={18} className="input-icon" />
                   <input
                     type="text"
                     id="company"
