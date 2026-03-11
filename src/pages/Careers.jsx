@@ -338,30 +338,6 @@ function Careers() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="careers-stats">
-        <div className="container">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Team Members</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">100+</span>
-              <span className="stat-label">Projects Delivered</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">Happy Clients</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">95%</span>
-              <span className="stat-label">Employee Retention</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Benefits Section */}
       <section className="benefits-section">
         <div className="container">
