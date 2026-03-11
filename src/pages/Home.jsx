@@ -220,32 +220,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="stats-grid">
-            {[
-              { number: '150+', label: 'Projects Delivered', suffix: '' },
-              { number: '50+', label: 'Happy Clients', suffix: '' },
-              { number: '5+', label: 'Years Experience', suffix: '' },
-              { number: '24/7', label: 'Support Available', suffix: '' }
-            ].map((stat, index) => (
-              <motion.div 
-                key={index}
-                className="stat-card glass-card"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
       <section id="services" className="services-section">
         <div className="container">
