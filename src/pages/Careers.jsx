@@ -170,6 +170,80 @@ function Careers() {
         'Excellent communication skills',
         'Track record of successful deliveries'
       ]
+    },
+    {
+      id: 9,
+      title: 'UI/UX Design Intern',
+      type: 'Internship',
+      location: 'Remote',
+      experience: 'Students',
+      department: 'Design',
+      icon: Palette,
+      description: 'Design modern, user-friendly interfaces.',
+      requirements: [
+        'Figma / Adobe XD',
+        'Wireframing',
+        'UI principles'
+      ]
+    },
+    {
+      id: 10,
+      title: 'Mobile App Development Intern',
+      type: 'Internship',
+      location: 'Remote',
+      experience: 'Students',
+      department: 'Engineering',
+      icon: Code2,
+      description: 'Build Android/iOS applications.',
+      requirements: [
+        'Flutter / React Native',
+        'APIs integration'
+      ]
+    },
+    {
+      id: 11,
+      title: 'Backend Development Intern',
+      type: 'Internship',
+      location: 'Remote / Hyderabad',
+      experience: 'Students',
+      department: 'Engineering',
+      icon: Database,
+      description: 'Work on server-side logic and APIs.',
+      requirements: [
+        'Node.js / Python',
+        'Databases (MongoDB / MySQL)'
+      ]
+    },
+    {
+      id: 12,
+      title: 'Software Testing / QA Intern',
+      type: 'Internship',
+      location: 'Remote',
+      experience: 'Students',
+      department: 'Quality Assurance',
+      icon: UserCog,
+      description: 'Test applications and ensure quality.',
+      requirements: [
+        'Manual testing',
+        'Bug tracking',
+        'Attention to detail'
+      ]
+    },
+    {
+      id: 13,
+      title: 'Full Stack Development Intern',
+      type: 'Internship',
+      location: 'Remote / Hyderabad',
+      experience: 'Students',
+      department: 'Engineering',
+      icon: Code2,
+      description: 'Build complete web applications from frontend to backend.',
+      requirements: [
+        'HTML, CSS, JavaScript',
+        'React (frontend)',
+        'Node.js / Express (backend)',
+        'Database (MongoDB / MySQL)'
+      ]
     }
   ]
 
@@ -196,7 +270,7 @@ function Careers() {
     }
   ]
 
-  const INTERNSHIP_POSITIONS = ['Data Science Intern', 'Web Development Intern']
+  const INTERNSHIP_POSITIONS = ['Data Science Intern', 'Web Development Intern', 'UI/UX Design Intern', 'Mobile App Development Intern', 'Backend Development Intern', 'Software Testing / QA Intern', 'Full Stack Development Intern']
 
   const handleSubmit = async (e) => {
     e.preventDefault()
