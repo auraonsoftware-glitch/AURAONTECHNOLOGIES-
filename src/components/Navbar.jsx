@@ -23,16 +23,11 @@ function Navbar() {
       e.preventDefault()
       const targetPath = path.startsWith('/careers#top') ? '/careers' : '/'
       if (location.pathname !== targetPath) {
-        navigate(targetPath)
+        navigate(targetPath, { state: { scrollToTop: true } })
       }
       setTimeout(() => {
-        const element = document.querySelector(path.substring(1) || 'html')
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        }
-      }, 150)
+        window.scrollTo({ top: 0, behavior: 'auto' })
+      }, 50)
       setMobileMenuOpen(false)
     }
   }
