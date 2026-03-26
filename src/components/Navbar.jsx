@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import './Navbar.css'
 
@@ -16,13 +16,20 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const navigate = useNavigate()
+
   const handleNavClick = (e, path) => {
     if (path.startsWith('/#')) {
       e.preventDefault()
-      const element = document.querySelector(path.substring(1))
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
+      if (location.pathname !== '/') {
+        navigate('/')
       }
+      setTimeout(() => {
+        const element = document.querySelector(path.substring(1))
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
       setMobileMenuOpen(false)
     }
   }
