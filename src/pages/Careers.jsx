@@ -391,7 +391,7 @@ function Careers() {
   }
 
   return (
-    <div className="careers-page">
+<div id="top" className="careers-page">
       {/* Hero Section */}
       <section className="careers-hero">
         <div className="container">

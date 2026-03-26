@@ -38,7 +38,7 @@ function Navbar() {
     { path: '/', label: 'Home' },
     { path: '/#services', label: 'Services' },
     { path: '/#process', label: 'Process' },
-    { path: '/careers', label: 'Careers' },
+{ path: '/careers#top', label: 'Careers' },
     { path: '/#founder', label: 'Founder' },
   ]
 
