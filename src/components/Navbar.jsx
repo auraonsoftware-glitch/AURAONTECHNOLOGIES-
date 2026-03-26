@@ -19,17 +19,20 @@ function Navbar() {
   const navigate = useNavigate()
 
   const handleNavClick = (e, path) => {
-    if (path.startsWith('/#')) {
+    if (path.startsWith('/#') || path.includes('#top')) {
       e.preventDefault()
-      if (location.pathname !== '/') {
-        navigate('/')
+      const targetPath = path.startsWith('/careers#top') ? '/careers' : '/'
+      if (location.pathname !== targetPath) {
+        navigate(targetPath)
       }
       setTimeout(() => {
-        const element = document.querySelector(path.substring(1))
+        const element = document.querySelector(path.substring(1) || 'html')
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' })
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
         }
-      }, 100)
+      }, 150)
       setMobileMenuOpen(false)
     }
   }
