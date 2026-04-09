@@ -188,6 +188,22 @@ function Careers() {
     },
     {
       id: 10,
+      title: 'Mobile App Developer',
+      type: 'Full-time',
+      location: 'Remote / Hyderabad',
+      experience: '1-3 Years',
+      department: 'Engineering',
+      icon: Code2,
+      description: 'Builds Android + iOS app. Flutter / React Native preferred.',
+      requirements: [
+        'Flutter / React Native preferred',
+        'Build Android + iOS apps',
+        'UI + API integration',
+        'App performance optimization'
+      ]
+    },
+    {
+      id: 14,
       title: 'Mobile App Development Intern',
       type: 'Internship',
       location: 'Remote',
@@ -270,7 +286,7 @@ function Careers() {
     }
   ]
 
-  const INTERNSHIP_POSITIONS = ['Data Science Intern', 'Web Development Intern', 'UI/UX Design Intern', 'Mobile App Development Intern', 'Backend Development Intern', 'Software Testing / QA Intern', 'Full Stack Development Intern']
+  const INTERNSHIP_POSITIONS = ['Data Science Intern', 'Web Development Intern', 'UI/UX Design Intern', 'Backend Development Intern', 'Software Testing / QA Intern', 'Full Stack Development Intern', 'Mobile App Development Intern']
 
   const handleSubmit = async (e) => {
     e.preventDefault()
