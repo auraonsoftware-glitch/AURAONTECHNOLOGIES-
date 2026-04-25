@@ -114,26 +114,7 @@ function Home() {
     }
   ]
 
-  const testimonials = [
-    {
-      name: 'Rajesh Kumar',
-      role: 'CEO, TechStart',
-      content: 'AURAON transformed our outdated website into a modern, high-performing platform. Their attention to detail and technical expertise is exceptional.',
-      rating: 5
-    },
-    {
-      name: 'Priya Sharma',
-      role: 'Founder, HealthPlus',
-      content: 'The mobile app they developed for us has received amazing feedback from our users. Professional team, great communication, and on-time delivery.',
-      rating: 5
-    },
-    {
-      name: 'Amit Patel',
-      role: 'CTO, FinanceHub',
-      content: 'Their AI solution helped us automate 70% of our manual processes. Incredible ROI and the team was fantastic to work with.',
-      rating: 5
-    }
-  ]
+
 
   const features = [
     { icon: <Zap size={24} />, title: 'Lightning Fast', desc: 'Optimized performance', color: '#0ea5e9' },
@@ -283,47 +264,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="testimonials-section">
-        <div className="container">
-          <div className="section-title">
-            <h2>Client Success Stories</h2>
-            <p>Hear what our clients say about working with us</p>
-          </div>
-          
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <motion.div 
-                key={index}
-                className="testimonial-card glass-card"
-                initial={{ opacity: 0, y: 40, rotateX: -15 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              >
-                <div className="testimonial-stars">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={18} fill="#fbbf24" color="#fbbf24" />
-                  ))}
-                </div>
-                <p className="testimonial-quote">"{testimonial.content}"</p>
-                <div className="testimonial-author">
-                  <div className="author-avatar">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <div className="author-info">
-                    <h4>{testimonial.name}</h4>
-                    <span>{testimonial.role}</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
           <motion.div 
