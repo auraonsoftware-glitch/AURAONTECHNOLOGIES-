@@ -125,7 +125,7 @@ function Quote() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+placeholder="Your full name"
                     required
                   />
                 </div>
@@ -140,7 +140,7 @@ function Quote() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john@company.com"
+placeholder="your@email.com"
                     required
                   />
                 </div>
