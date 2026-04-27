@@ -360,32 +360,149 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .confirmation-page {
+    padding: 100px 16px;
+  }
+
   .confirmation-card {
-    padding: 40px 24px;
+    padding: 48px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .confirmation-page {
+    padding: 80px 16px;
+    min-height: auto;
+  }
+
+  .confirmation-card {
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .success-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .success-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .success-badge {
+    padding: 6px 12px;
+    font-size: 0.8125rem;
   }
 
   .success-section h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    margin-bottom: 12px;
+  }
+
+  .confirmation-message {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .inquiry-summary {
+    padding: 24px 16px;
+    margin-bottom: 32px;
+  }
+
+  .summary-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .summary-header h3 {
+    font-size: 1.125rem;
   }
 
   .summary-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .summary-item .label {
+    font-size: 0.75rem;
+  }
+
+  .summary-item .value {
+    font-size: 1rem;
+  }
+
+  .next-steps {
+    margin-bottom: 32px;
+  }
+
+  .next-steps h3 {
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+  }
+
+  .timeline-item {
     gap: 16px;
+    padding: 20px 16px;
+  }
+
+  .timeline-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
   }
 
   .timeline-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
+  }
+
+  .timeline-header h4 {
+    font-size: 1rem;
+  }
+
+  .timeline-time {
+    font-size: 0.8125rem;
+    padding: 3px 10px;
+  }
+
+  .timeline-content p {
+    font-size: 0.875rem;
   }
 
   .confirmation-actions {
     flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.875rem;
+  }
+
+  .contact-section {
+    padding-top: 24px;
+  }
+
+  .contact-section > p {
+    font-size: 0.9375rem;
+    margin-bottom: 12px;
   }
 
   .contact-links {
     flex-direction: column;
-    align-items: center;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .contact-link {
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 0.875rem;
   }
 }

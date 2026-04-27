@@ -60,10 +60,12 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
+  overflow-x: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: var(--bg-darker);
   color: var(--text-white);
@@ -213,9 +215,90 @@ a:hover {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
+@media (max-width: 1024px) {
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.375rem; }
+  h4 { font-size: 1.125rem; }
+  
   .section { padding: 60px 0; }
   .section-title { font-size: 2rem; }
+  .container { padding: 0 20px; }
+  
+  .btn {
+    padding: 11px 20px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1rem; }
+  
+  p { font-size: 0.9375rem; }
+  
+  .section { padding: 48px 0; }
+  .section-alt { padding: 48px 0; }
+  .section-title { 
+    font-size: 1.5rem; 
+    margin-bottom: 12px;
+  }
+  .section-subtitle { 
+    font-size: 1rem;
+    margin: 0 auto 32px;
+  }
+  
+  .container { 
+    padding: 0 16px;
+    max-width: 100%;
+  }
+  
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.8125rem;
+    gap: 6px;
+    border-radius: var(--radius-md);
+  }
+  
+  .btn-primary {
+    font-weight: 700;
+  }
+  
+  .btn-secondary {
+    border-width: 2px;
+  }
+  
+  .card {
+    padding: 20px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Ensure all images are responsive */
+  img[src] {
+    max-width: 100%;
+    display: block;
+    height: auto;
+  }
+  
+  /* Responsive backgrounds */
+  .home {
+    background-attachment: scroll;
+  }
+  
+  .confirmation-page {
+    background-attachment: scroll;
+  }
+  
+  body {
+  overflow-x: hidden;
+    font-size: 0.9375rem;
+  }
 }

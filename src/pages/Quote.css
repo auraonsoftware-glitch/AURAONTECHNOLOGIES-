@@ -296,29 +296,101 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .quote-page {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
   .quote-hero {
-    padding: 40px 0 60px;
+    padding: 40px 16px 60px;
   }
 
   .quote-hero h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .quote-hero p {
+    font-size: 1rem;
   }
 
   .quote-form {
-    padding: 32px 24px;
-    margin: 0 16px;
+    padding: 32px 16px;
+    margin: 0;
+    border-radius: var(--radius-lg);
+  }
+
+  .form-section {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  .section-title svg {
+    width: 20px;
+    height: 20px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 0.8125rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .form-group textarea {
+    min-height: 120px;
   }
 
   .service-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .service-option {
-    padding: 16px;
+    padding: 16px 12px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service-option .service-icon {
+    margin-bottom: 8px;
+  }
+
+  .service-info strong {
+    font-size: 0.875rem;
+  }
+
+  .service-info span {
+    font-size: 0.7rem;
+  }
+
+  .submit-btn {
+    padding: 16px 24px;
+    font-size: 0.9375rem;
+    gap: 8px;
+  }
+
+  .form-note {
+    font-size: 0.8125rem;
+  }
+
+  .resume-hint {
+    font-size: 0.75rem;
   }
 }
