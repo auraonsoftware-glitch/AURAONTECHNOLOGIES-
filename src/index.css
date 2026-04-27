@@ -74,6 +74,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* MOBILE IMAGE */
+@media (max-width: 768px) {
+  body {
+    background-image: url('/images/img4mobile.png');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
