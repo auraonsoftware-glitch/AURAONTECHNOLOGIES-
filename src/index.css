@@ -67,7 +67,7 @@ html {
 body {
   overflow-x: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: transparent;
+  background: url('/images/img4.png') no-repeat center center/cover fixed;
   color: var(--text-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
