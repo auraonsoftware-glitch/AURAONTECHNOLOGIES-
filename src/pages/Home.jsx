@@ -8,7 +8,6 @@ import {
   Palette, 
   Database,
   ArrowRight,
-  Star,
   Zap,
   Shield,
   Globe,
@@ -17,6 +16,7 @@ import {
   Linkedin
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import bgImage from '/img4.png'
 import './Home.css'
 
 function Home() {
@@ -124,7 +124,11 @@ function Home() {
 
   return (
     <div className="home" ref={containerRef}>
-      <div className="home-bg" />
+      <div 
+        className="home-bg" 
+        style={{ backgroundImage: `url(${bgImage})` }}
+        aria-hidden="true"
+      />
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="hero-bg-effects">
