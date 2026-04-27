@@ -16,7 +16,7 @@ import {
   Linkedin
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import bgImage from '/img4.png'
+import bgImage from '../assets/img4.png'
 import './Home.css'
 
 function Home() {

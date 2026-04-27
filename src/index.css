@@ -67,7 +67,7 @@ html {
 body {
   overflow-x: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #0f172a;
+  background: transparent;
   color: var(--text-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
