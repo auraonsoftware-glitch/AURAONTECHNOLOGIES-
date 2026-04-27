@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
 import './Navbar.css'
 
 function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
@@ -18,12 +17,16 @@ function Navbar() {
 
   const navigate = useNavigate()
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen)
+  }
+
   const handleNavClick = (e, path) => {
     if (path === '/careers#top') {
       e.preventDefault()
       navigate('/careers')
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100)
-      setMobileMenuOpen(false)
+      setMenuOpen(false)
       return
     }
     if (path.startsWith('/#')) {
@@ -33,7 +36,7 @@ function Navbar() {
         const element = document.querySelector(path.substring(1))
         if (element) element.scrollIntoView({ behavior: 'smooth' })
       }, 100)
-      setMobileMenuOpen(false)
+      setMenuOpen(false)
     }
   }
 
@@ -63,7 +66,7 @@ function Navbar() {
           <span className="logo-text">AURAON</span>
         </Link>
 
-        <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -80,13 +83,9 @@ function Navbar() {
           </Link>
         </div>
 
-        <button 
-          className="mobile-menu-btn"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="menu-icon" onClick={toggleMenu}>
+          {menuOpen ? "✕" : "☰"}
+        </div>
       </div>
     </nav>
   )
