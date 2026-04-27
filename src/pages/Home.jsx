@@ -124,6 +124,7 @@ function Home() {
 
   return (
     <div className="home" ref={containerRef}>
+      <div className="home-bg" />
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="hero-bg-effects">
