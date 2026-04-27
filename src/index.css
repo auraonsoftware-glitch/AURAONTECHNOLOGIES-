@@ -78,8 +78,13 @@ body {
 @media (max-width: 768px) {
   body {
     background-image: url('/images/img4mobile.png');
+
+    height: 100vh;
+    min-height: 100vh;
+
     background-size: cover;
-    background-position: center;
+    background-position: center top;
+    background-repeat: no-repeat;
   }
 }
 
