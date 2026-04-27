@@ -288,17 +288,8 @@ a:hover {
     height: auto;
   }
   
-  /* Responsive backgrounds */
-  .home {
-    background-attachment: scroll;
-  }
-  
-  .confirmation-page {
-    background-attachment: scroll;
-  }
-  
   body {
-  overflow-x: hidden;
+    overflow-x: hidden;
     font-size: 0.9375rem;
   }
 }
